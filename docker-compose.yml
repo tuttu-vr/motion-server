@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  redis:
+    image: redis
+  server:
+    build:
+      context: server
+    depends_on:
+      - redis
+    ports:
+      - 5000:80
+    volumes:
+      - ./server:/app
